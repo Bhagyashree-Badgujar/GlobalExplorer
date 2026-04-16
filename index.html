@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Explorer</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f4f7fb;color:#333}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:15px 40px;background:white;position:sticky;top:0;box-shadow:0 2px 10px rgba(0,0,0,0.1);z-index:1000}
+nav h1{color:#ff6b00}
+nav ul{display:flex;gap:25px;list-style:none}
+nav ul li a{text-decoration:none;color:black;font-weight:500}
+
+.hero{height:80vh;background:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url('images/mainbkg.png');background-size:cover;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center}
+.hero h2{font-size:55px}
+.btn{background:#ff6b00;color:white;padding:10px 20px;border:none;border-radius:5px;cursor:pointer}
+
+.section{padding:60px 20px;text-align:center}
+
+.categories{display:flex;gap:15px;overflow-x:auto}
+.cat{padding:10px 15px;background:white;border-radius:10px;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,0.1)}
+.cat.active{background:#ff6b00;color:white}
+
+.packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 6px 20px rgba(0,0,0,0.1)}
+.card img{width:100%;height:180px;object-fit:cover}
+.card-content{padding:15px;text-align:left}
+.price{color:#ff6b00;font-weight:700}
+
+.contact{background:#fff}
+.contact-box{max-width:600px;margin:auto;text-align:left}
+.contact-box input,.contact-box textarea{width:100%;padding:10px;margin:10px 0;border:1px solid #ccc;border-radius:5px}
+
+footer{background:#111;color:white;text-align:center;padding:20px}
+
+@media(max-width:768px){.hero h2{font-size:32px}}
+</style>
+</head>
+
+<body>
+
+<nav>
+<h1>Global Explorer</h1>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#categories">Categories</a></li>
+<li><a href="#packages">Packages</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="hero" id="home">
+<h2>Discover Your Next Adventure</h2>
+<p>Explore the world with curated packages</p>
+</div>
+
+<section class="section" id="categories">
+<h2>Categories</h2>
+<div class="categories">
+<div class="cat active" onclick="filterCategory('all', this)">All</div>
+<div class="cat" onclick="filterCategory('adventure', this)">Adventure</div>
+<div class="cat" onclick="filterCategory('luxury', this)">Luxury</div>
+<div class="cat" onclick="filterCategory('budget', this)">Budget</div>
+<div class="cat" onclick="filterCategory('family', this)">Family</div>
+</div>
+</section>
+
+<section class="section" id="packages">
+<h2>Tour Packages</h2>
+<div class="packages" id="packageContainer">
+
+<!-- 12 Packages -->
+
+<div class="card" data-category="luxury"><img src="images/paris.png"><div class="card-content"><h3>Paris Tour</h3><p class="price">₹80,000</p></div></div>
+<div class="card" data-category="luxury"><img src="images/amsterdam.png"><div class="card-content"><h3>Amsterdam Trip</h3><p class="price">₹90,000</p></div></div>
+<div class="card" data-category="adventure"><img src="images/swiss.png"><div class="card-content"><h3>Swiss Alps</h3><p class="price">₹1,10,000</p></div></div>
+<div class="card" data-category="budget"><img src="images/thai.png"><div class="card-content"><h3>Thailand Budget</h3><p class="price">₹40,000</p></div></div>
+<div class="card" data-category="family"><img src="images/singpore.png"><div class="card-content"><h3>Singapore Family</h3><p class="price">₹60,000</p></div></div>
+<div class="card" data-category="adventure"><img src="images/dubai.png"><div class="card-content"><h3>Dubai Desert</h3><p class="price">₹55,000</p></div></div>
+<div class="card" data-category="luxury"><img src="images/maldives.png"><div class="card-content"><h3>Maldives Luxury</h3><p class="price">₹1,20,000</p></div></div>
+<div class="card" data-category="budget"><img src="images/bali.png"><div class="card-content"><h3>Bali Budget</h3><p class="price">₹45,000</p></div></div>
+<div class="card" data-category="family"><img src="images/mainbkg.png"><div class="card-content"><h3>Europe Tour</h3><p class="price">₹1,50,000</p></div></div>
+<div class="card" data-category="adventure"><img src="images/manali.png"><div class="card-content"><h3>Manali Adventure</h3><p class="price">₹25,000</p></div></div>
+<div class="card" data-category="budget"><img src="images/goa.png"><div class="card-content"><h3>Goa Trip</h3><p class="price">₹20,000</p></div></div>
+<div class="card" data-category="family"><img src="images/asia.png"><div class="card-content"><h3>Asia Tour</h3><p class="price">₹1,00,000</p></div></div>
+
+</div>
+</section>
+
+<section class="section contact" id="contact">
+<h2>Contact Us</h2>
+<div class="contact-box">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
+<textarea rows="4" placeholder="Your Message"></textarea>
+<button class="btn">Send Message</button>
+<p>Email: support@globalexplorer.com</p>
+<p>Phone: +91 9000000000</p>
+</div>
+</section>
+
+<footer>
+<p>© 2026 Global Explorer</p>
+</footer>
+
+<script>
+function filterCategory(category, el){
+  let cards = document.querySelectorAll('.card');
+  document.querySelectorAll('.cat').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+
+  cards.forEach(card=>{
+    if(category==='all' || card.dataset.category===category){
+      card.style.display='block';
+    } else {
+      card.style.display='none';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
